@@ -120,11 +120,11 @@ class UserAPI {
 
 ### ✅ YAGNI 適用
 
-```javascript
-class UserAPI {
-  getUser(id) {/* 実装 */}
-  createUser(data) {/* 実装 */}
-  updateUser(id, data) {/* 実装 */}
+```go
+interface UserAPI {
+  getUser(id string) {/* 実装 */}
+  createUser(data string) {/* 実装 */}
+  updateUser(id string, data string) {/* 実装 */}
   // 必要になったら追加
 }
 ```

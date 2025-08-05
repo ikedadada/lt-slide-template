@@ -5,7 +5,9 @@
  * Licensed under MIT
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* Highlight.js base styles for Marp */
 
 :root {
   /* FLECT Brand Colors */
@@ -15,32 +17,34 @@
   --success-color: #48bb78;
   --warning-color: #ed8936;
   --danger-color: #f56565;
-  
+
   /* Text Colors */
   --text-primary: #2d3748;
   --text-secondary: #4a5568;
   --text-muted: #718096;
   --text-light: #a0aec0;
-  
+
   /* Background Colors */
   --bg-primary: #ffffff;
   --bg-secondary: #f7fafc;
   --bg-muted: #edf2f7;
   --bg-dark: #2d3748;
-  
+
   /* Sizes and Spacing */
   --slide-width: 1280px;
   --slide-height: 720px;
   --content-padding: 60px;
   --border-radius: 8px;
   --border-radius-large: 12px;
-  
+
   /* Typography */
-  --font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-family-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Consolas', monospace;
+  --font-family: "Inter", "Noto Sans JP", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-family-mono: "JetBrains Mono", "SF Mono", "Monaco", "Consolas",
+    monospace;
   --font-size-base: 24px;
   --line-height-base: 1.6;
-  
+
   /* Shadows */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
@@ -62,7 +66,12 @@ section {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--primary-color);
   font-weight: 600;
   margin: 0;
@@ -113,7 +122,8 @@ em {
 }
 
 /* Lists */
-ul, ol {
+ul,
+ol {
   margin: 1rem 0;
   padding-left: 2rem;
 }
@@ -133,7 +143,7 @@ code {
   font-size: 0.9em;
   color: var(--danger-color);
   background-color: var(--bg-muted);
-  padding: 0.2em 0.4em;
+  padding: 0.4em 0.4em;
   border-radius: 4px;
 }
 
@@ -141,8 +151,8 @@ pre {
   background-color: var(--bg-secondary);
   border: 1px solid var(--bg-muted);
   border-radius: var(--border-radius);
-  padding: 1.5rem;
-  margin: 1.5rem 0;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
   overflow-x: auto;
   box-shadow: var(--shadow-sm);
 }
@@ -150,8 +160,379 @@ pre {
 pre code {
   background: none;
   padding: 0;
-  color: var(--text-primary);
   font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+/* Marp compatible syntax highlighting */
+pre code .hljs-keyword,
+pre code .hljs-built_in,
+pre code .hljs-type,
+pre code .hljs-selector-tag {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+pre code .hljs-function,
+pre code .hljs-title,
+pre code .hljs-title.function_ {
+  color: var(--secondary-color);
+}
+
+pre code .hljs-title.class_,
+pre code .hljs-title.class_.inherited__,
+pre code .hljs-class {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+pre code .hljs-string,
+pre code .hljs-char {
+  color: var(--success-color);
+}
+
+pre code .hljs-comment,
+pre code .hljs-quote {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+pre code .hljs-number,
+pre code .hljs-literal {
+  color: var(--warning-color);
+}
+
+pre code .hljs-variable,
+pre code .hljs-template-variable {
+  color: var(--accent-color);
+}
+
+pre code .hljs-attr,
+pre code .hljs-attribute {
+  color: var(--secondary-color);
+}
+
+pre code .hljs-tag {
+  color: var(--primary-color);
+}
+
+pre code .hljs-name {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+/* Keep punctuation black */
+pre code .hljs-punctuation {
+  color: var(--text-primary);
+}
+
+/* VSCode-level syntax highlighting - Language-specific enhancements */
+
+/* Go language specific */
+pre code .hljs-built_in {
+  color: var(--secondary-color); /* Built-in functions like make, len, cap */
+}
+
+pre code .hljs-type {
+  color: var(--accent-color); /* Types like int, string, bool */
+}
+
+pre code .hljs-params {
+  color: var(--text-primary); /* Function parameters */
+}
+
+pre code .hljs-property {
+  color: var(--accent-color); /* Struct fields */
+}
+
+/* JavaScript/TypeScript specific */
+pre code .hljs-meta {
+  color: var(--text-muted); /* Decorators, imports */
+}
+
+pre code .hljs-symbol {
+  color: var(--warning-color); /* Symbols */
+}
+
+/* Python specific */
+pre code .hljs-decorator,
+pre code .hljs-doctag {
+  color: var(--warning-color); /* @decorator, docstrings */
+}
+
+/* Java specific */
+pre code .hljs-annotation {
+  color: var(--warning-color); /* @Override, @Autowired */
+}
+
+/* CSS specific */
+pre code .hljs-selector-class {
+  color: var(--accent-color); /* .className */
+}
+
+pre code .hljs-selector-id {
+  color: var(--warning-color); /* #idName */
+}
+
+pre code .hljs-property {
+  color: var(--secondary-color); /* CSS properties */
+}
+
+pre code .hljs-value {
+  color: var(--success-color); /* CSS values */
+}
+
+/* HTML specific */
+pre code .hljs-tag .hljs-name {
+  color: var(--primary-color); /* <tagName> */
+}
+
+pre code .hljs-tag .hljs-attr {
+  color: var(--secondary-color); /* attributes */
+}
+
+/* SQL specific */
+pre code .hljs-operator {
+  color: var(--primary-color); /* =, >, < operators */
+}
+
+/* Shell/Bash specific */
+pre code .hljs-variable {
+  color: var(--accent-color); /* $variables */
+}
+
+pre code .hljs-subst {
+  color: var(--text-primary); /* Variable substitution */
+}
+
+/* Advanced highlighting for all languages */
+pre code .hljs-regexp {
+  color: var(--danger-color); /* Regular expressions */
+}
+
+pre code .hljs-escape {
+  color: var(--warning-color); /* Escape sequences */
+}
+
+pre code .hljs-link {
+  color: var(--secondary-color); /* URLs, links */
+  text-decoration: underline;
+}
+
+pre code .hljs-emphasis {
+  font-style: italic;
+}
+
+pre code .hljs-strong {
+  font-weight: bold;
+}
+
+/* Ultra-rich syntax highlighting - Modern IDE features */
+
+/* Language-specific keywords with different colors */
+pre code .hljs-keyword.hljs-control {
+  color: var(--danger-color); /* if, else, for, while - Red */
+  font-weight: 700;
+}
+
+pre code .hljs-keyword.hljs-import {
+  color: var(--warning-color); /* import, from, require - Orange */
+  font-weight: 600;
+}
+
+/* Enhanced Go highlighting */
+pre code .hljs-built_in.go {
+  color: var(--secondary-color);
+  font-weight: 600;
+  text-shadow: 0 0 2px rgba(66, 153, 225, 0.3);
+}
+
+/* Constants and nil values */
+pre code .hljs-literal.hljs-constant {
+  color: var(--accent-color);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+pre code .hljs-literal[data-value="nil"],
+pre code .hljs-literal[data-value="null"],
+pre code .hljs-literal[data-value="undefined"] {
+  color: var(--danger-color);
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Function definitions vs function calls */
+pre code .hljs-function.hljs-definition {
+  color: var(--secondary-color);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(66, 153, 225, 0.4);
+}
+
+pre code .hljs-function.hljs-call {
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+/* Variable types and interfaces */
+pre code .hljs-type.hljs-interface {
+  color: var(--accent-color);
+  font-weight: 600;
+  font-style: italic;
+}
+
+pre code .hljs-type.hljs-struct {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+/* Package and module names */
+pre code .hljs-module,
+pre code .hljs-namespace {
+  color: var(--text-secondary);
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* Error handling keywords */
+pre code .hljs-keyword[data-keyword="error"],
+pre code .hljs-keyword[data-keyword="panic"],
+pre code .hljs-keyword[data-keyword="recover"] {
+  color: var(--danger-color);
+  font-weight: 700;
+  background-color: rgba(245, 101, 101, 0.1);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* Method chaining dots */
+pre code .hljs-operator.hljs-dot {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+/* Template literals and string interpolation */
+pre code .hljs-template-literal {
+  color: var(--success-color);
+  background-color: rgba(72, 187, 120, 0.1);
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+pre code .hljs-template-variable {
+  color: var(--warning-color);
+  font-weight: 600;
+  background-color: rgba(237, 137, 54, 0.1);
+}
+
+/* Comments with better styling */
+pre code .hljs-comment {
+  color: var(--text-muted);
+  font-style: italic;
+  opacity: 0.7;
+  font-size: 0.95em;
+}
+
+pre code .hljs-comment.hljs-doc {
+  color: var(--success-color);
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+/* TODO, FIXME, NOTE in comments */
+pre code .hljs-comment:contains("TODO"),
+pre code .hljs-comment:contains("FIXME"),
+pre code .hljs-comment:contains("NOTE") {
+  background-color: rgba(237, 137, 54, 0.15);
+  font-weight: 600;
+  opacity: 1;
+}
+
+/* Numbers with enhanced styling */
+pre code .hljs-number {
+  color: var(--warning-color);
+  font-weight: 600;
+  background-color: rgba(237, 137, 54, 0.08);
+  padding: 0 1px;
+  border-radius: 2px;
+}
+
+/* Boolean values */
+pre code .hljs-literal[data-value="true"] {
+  color: var(--success-color);
+  font-weight: 700;
+}
+
+pre code .hljs-literal[data-value="false"] {
+  color: var(--danger-color);
+  font-weight: 700;
+}
+
+/* Strings with subtle background */
+pre code .hljs-string {
+  color: var(--success-color);
+  background-color: rgba(72, 187, 120, 0.05);
+  padding: 0 1px;
+  border-radius: 2px;
+}
+
+/* Regex patterns */
+pre code .hljs-regexp {
+  color: var(--danger-color);
+  background-color: rgba(245, 101, 101, 0.1);
+  font-weight: 600;
+  border-left: 2px solid var(--danger-color);
+  padding-left: 4px;
+}
+
+/* Enhanced punctuation for better readability */
+pre code .hljs-punctuation.hljs-bracket {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+pre code .hljs-punctuation.hljs-delimiter {
+  color: var(--text-muted);
+}
+
+/* Operator highlighting */
+pre code .hljs-operator.hljs-assignment {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+pre code .hljs-operator.hljs-comparison {
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+pre code .hljs-operator.hljs-logical {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+/* Class and interface names with special styling */
+pre code .hljs-title.class_ {
+  color: var(--accent-color);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(102, 126, 234, 0.3);
+  text-underline-offset: 2px;
+}
+
+/* Attributes and decorators */
+pre code .hljs-meta.hljs-decorator {
+  color: var(--warning-color);
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Enhanced readability with subtle shadows */
+pre code .hljs-keyword,
+pre code .hljs-built_in,
+pre code .hljs-function {
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
 /* Tables */
@@ -159,7 +540,7 @@ table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  margin: 1.5rem 0;
+  margin: 1rem 0;
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: var(--shadow-md);
@@ -167,7 +548,11 @@ table {
 }
 
 thead th {
-  background: linear-gradient(135deg, var(--primary-color), var(--text-secondary));
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--text-secondary)
+  );
   color: white;
   padding: 1rem 1.5rem;
   font-weight: 600;
@@ -176,7 +561,7 @@ thead th {
 }
 
 tbody td {
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid var(--bg-muted);
   color: var(--text-primary);
 }
@@ -211,7 +596,11 @@ blockquote {
 
 /* Custom Classes */
 .highlight {
-  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color),
+    var(--accent-color)
+  );
   color: white;
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
@@ -269,7 +658,7 @@ blockquote {
 }
 
 .emoji-large {
-  font-size: 4rem;
+  font-size: 2rem;
   text-align: center;
   margin: 1.5rem 0;
   line-height: 1;
@@ -285,7 +674,12 @@ blockquote {
 
 /* Title Slide Styles */
 section.title {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 50%,
+    var(--accent-color) 100%
+  );
   color: white;
   text-align: center;
   justify-content: center;
@@ -295,13 +689,17 @@ section.title {
 }
 
 section.title::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  background: radial-gradient(
+    circle at 30% 70%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%
+  );
   pointer-events: none;
 }
 
@@ -312,7 +710,7 @@ section.title h1 {
   border-bottom: 4px solid rgba(255, 255, 255, 0.3);
   padding-bottom: 1rem;
   margin-bottom: 2rem;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 section.title h2 {
@@ -332,7 +730,12 @@ section.title p {
 
 /* Lead Slide (alias for title) */
 section.lead {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 50%,
+    var(--accent-color) 100%
+  );
   color: white;
   text-align: center;
   justify-content: center;
@@ -342,13 +745,17 @@ section.lead {
 }
 
 section.lead::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  background: radial-gradient(
+    circle at 30% 70%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%
+  );
   pointer-events: none;
 }
 
@@ -359,7 +766,7 @@ section.lead h1 {
   border-bottom: 4px solid rgba(255, 255, 255, 0.3);
   padding-bottom: 1rem;
   margin-bottom: 2rem;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 section.lead h2 {
@@ -384,12 +791,20 @@ section::after {
     font-size: 22px;
     padding: 50px;
   }
-  
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.5rem; }
-  
-  .emoji-large { font-size: 3rem; }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .emoji-large {
+    font-size: 3rem;
+  }
 }
 
 /* Print optimizations */
@@ -398,7 +813,7 @@ section::after {
     background: white !important;
     color: black !important;
   }
-  
+
   .highlight {
     background: var(--bg-muted) !important;
     color: var(--text-primary) !important;
