@@ -5,7 +5,7 @@
   "scripts": {
     "build": "marp --theme themes/default.css --html --pdf slide.md",
     "preview": "marp --theme themes/default.css --preview slide.md",
-    "serve": "marp --theme themes/default.css --server slide.md"
+    "serve": "marp --theme themes/default.css --server ."
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^4.2.0"
