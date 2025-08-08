@@ -807,6 +807,82 @@ section::after {
   }
 }
 
+/* 2カラムレイアウト用CSSクラス - Marp対応版 */
+section .two-column {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 2rem !important;
+  width: 100% !important;
+  margin-top: 1rem !important;
+}
+
+section .column-left {
+  flex: 1 !important;
+  padding-right: 1rem !important;
+  text-align: left !important;
+}
+
+section .column-right {
+  flex: 1 !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+section .column-right svg {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 350px !important;
+}
+
+.column-left h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  border-left: 5px solid var(--secondary-color);
+  padding-left: 1rem;
+}
+
+.column-left .highlight-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.column-left .problem-text {
+  color: var(--danger-color);
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.column-left .solution-text {
+  color: var(--success-color);
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.column-left ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.column-left ul li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.column-left ul li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
 /* Print optimizations */
 @media print {
   section {
@@ -817,5 +893,15 @@ section::after {
   .highlight {
     background: var(--bg-muted) !important;
     color: var(--text-primary) !important;
+  }
+  
+  .two-column {
+    display: block;
+  }
+  
+  .column-left,
+  .column-right {
+    width: 100%;
+    padding: 0;
   }
 }
